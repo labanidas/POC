@@ -8,10 +8,10 @@ import routes from './routes/route.js';
 dotenv.config();
 
 const app = express();
-const corsConfig = {
-  credentials : true,
-  origin : "*"
-  }
+// const corsConfig = {
+//   credentials : true,
+//   origin : "*"
+//   }
 
 app.use(cors(corsConfig));
 app.use(express.json());
