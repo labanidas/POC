@@ -1,6 +1,10 @@
 import User from "../models/user.model.js";
 
 
+export const test  = async (req, res) =>{
+  res.status(200).json({ message: "Server runned succesfully" });
+}
+
 export const readAll = async (req, res) => {
   try {
     const users = await User.find(); 
