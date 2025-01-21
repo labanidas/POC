@@ -10,7 +10,14 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
-app.use(cors());
+const corsConfig = {
+    origin: "*", // This allows all origins
+    credentials: true, // This allows credentials (cookies, HTTP authentication, etc.)
+    methods: ["POST", "GET", "PUT", "DELETE"]
+  }
+app.options(",", cors(corsConfig));
+app.use(cors(corsConfig));
+  
 
 
 app.use("/", routes)
