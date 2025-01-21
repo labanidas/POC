@@ -1,17 +1,16 @@
 {
-	"version": 2,
-	"functions": {
-		"api/server.js": {
-			"maxDuration": 60
-		}
-	},
-	"routes": [
-		{
-			"handle": "filesystem"
-		},
-		{
-			"src": "/(.*)",
-			"dest": "api/index.js"
-		}
-	]
-}
+    "version" : 2,
+    "name" : "app",
+    "builds" : [
+        {
+            "src" : "./api/index.js",
+            "use" : "@vercel/node"
+        }
+    ],
+    "routes" : [
+        {
+            "src" : "/(.*)",
+            "dest" : "api/index.js"
+        }
+    ]
+}     

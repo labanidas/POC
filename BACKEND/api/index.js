@@ -8,16 +8,15 @@ import routes from './routes/routes.route.js';
 dotenv.config();
 
 const app = express();
+const corsConfig = {
+  credentials : true,
+  origin : "*"
+  }
+
+app.use(cors(corsConfig));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
-const corsConfig = {
-    origin: "*", // This allows all origins
-    credentials: true, // This allows credentials (cookies, HTTP authentication, etc.)
-    methods: ["POST", "GET", "PUT", "DELETE"]
-  }
-app.options(",", cors(corsConfig));
-app.use(cors(corsConfig));
-  
+
 
 
 app.use("/", routes)
