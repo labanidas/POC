@@ -22,7 +22,13 @@ app.use("/", routes)
 
 const PORT = process.env.PORT
 
-app.listen(PORT, ()=>{
-    console.log(`Server is running on port number ${PORT}`);
-    connectDB();
+// app.listen(PORT, ()=>{
+//     console.log(`Server is running on port number ${PORT}`);
+//     connectDB();
+// })
+
+connectDB().then(()=>{
+    app.listen(PORT,()=>{
+        console.log("Server is running",PORT)
+    })
 })
